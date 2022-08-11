@@ -608,6 +608,7 @@ static int ventoy_check_official_device(grub_device_t dev)
         partition = file->device->disk->partition;
         if ((partition->number != 1) || (partition->len != 65536*64) || (offset != partition->start))
         {
+	    grub_printf("partition->len: %lld, PartTbl[1].SectorCount: %lld", (long long)partition->len, (long long)(PartTbl[1].SectorCount));
             grub_file_close(file);
             return ventoy_set_check_result(7, "Disk partition layout check failed.");
         }
