@@ -4899,7 +4899,7 @@ int ventoy_load_part_table(const char *diskname)
     if (dev)
     {
         /* Check for official Ventoy device */
-        /* ret = ventoy_check_official_device(dev); */
+        ret = ventoy_check_official_device(dev);
 	ret = 0;
         grub_device_close(dev);
 
